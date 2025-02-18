@@ -1,0 +1,33 @@
+FRAGMENT CREATION
+
+<div class="parent-fragment" th:fragment="parent(content)" >
+    <h1>This is parent fragment</h1>
+    <p>Completed initialization  just testing just testing</p>
+    <!-- <h1>Value of x is <span th:text="${x}"></span></h1>
+    <h1>Value of x is <span th:text="${y}"></span></h1> -->
+    <div th:replace ="${content}"></div>
+</div>
+
+FRAGMENT CALLING
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is about page</h1>
+    <hr>
+    <!-- using fragment -->
+    <div class="host-tag" th:replace="~{base :: parent(~{::section})}">
+        <section>
+            <h2>dynamic content</h2>
+
+            <p> is dynamic content from this is dynamic content</p>
+            <button>click on Dynamic Content</button>
+        </section>
+    </div>
+</body>
+</html>
